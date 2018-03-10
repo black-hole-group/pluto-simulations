@@ -1,7 +1,7 @@
 #PBS -S /bin/bash
 
 #PBS -l walltime=48:00:00
-#PBS -l nodes=5:ppn=24
+#PBS -l nodes=16:ppn=24
 
 #PBS -V
 #PBS -M j0r9v5q2e2p2b2r6@blackholehq.slack.com
@@ -11,9 +11,9 @@
 #PBS -e error.txt
 #PBS -o output.txt
 
-cd $HOME/pluto/Test_Problems/HD/Torus_2D_PN
+cd $HOME/pluto-simulations/hd/torus_2d_pn_penna
 
-mpirun -n 120 -machinefile $PBS_NODEFILE ./pluto
+mpirun -n 384 -machinefile $PBS_NODEFILE ./pluto
 
 
 

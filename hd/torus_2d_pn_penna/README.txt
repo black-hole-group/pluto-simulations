@@ -1,7 +1,19 @@
-Torus 2D hydro simulation, pseudo-Newtonian
-=============================================
+Torus 2D hydro, pseudo-Newtonian, $\alpha(r)$
+=========================================================
 
 Two-dimensional (axially symmetric) hydrodynamical simulation of a RIAF without cooling. The calculations begin from an equilibrium configuration consisting of a thick torus (Papaloizou-Pringle) with constant specific angular momentum. Accretion is induced by the addition of a small anomalous azimuthal shear stress which. 
+
+$\alpha$ varies with radius following proposal of Penna et al. (2013).
+
+If you want to do a quick test run on your laptop with decreased resolution and dynamic range, 
+
+    mv pluto_laptop.ini pluto.ini
+
+If you want to do the full simulation on the cluster,
+
+    mv pluto_cluster.ini pluto.ini
+
+The torus parameters and grid quoted below are for the cluster run. Adjust the `makefile` accordingly.
 
 # Code units
 
@@ -28,6 +40,12 @@ The adiabatic index is $\gamma = 5/3$.
 Parametrized following Stone et al. (1999) with the kinematic viscosity given by 
 $$\nu = \alpha \frac{c_s^2}{\Omega_k} \approx \alpha r^{-1/2}$$
 as appropriate for a RIAF. The shear stress is defined in file `visc_nu.c`.
+
+Here we use the radial scaling of $\alpha$ proposed by Penna et al. (2013),
+
+$$\alpha(r) = 0.025 \frac{ \left(1-\frac{2}{r}\right)^6}{\left(1-\frac{3}{r}\right)^6}$$
+
+and truncate it for $r<6M$ to the value 0.14.
 
 ## Gravity
 
