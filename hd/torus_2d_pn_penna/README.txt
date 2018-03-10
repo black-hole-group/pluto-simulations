@@ -7,11 +7,11 @@ $\alpha$ varies with radius following proposal of Penna et al. (2013).
 
 If you want to do a quick test run on your laptop with decreased resolution and dynamic range, 
 
-    mv pluto_laptop.ini pluto.ini
+    cp pluto_laptop.ini pluto.ini
 
 If you want to do the full simulation on the cluster,
 
-    mv pluto_cluster.ini pluto.ini
+    cp pluto_cluster.ini pluto.ini
 
 The torus parameters and grid quoted below are for the cluster run. Adjust the `makefile` accordingly.
 

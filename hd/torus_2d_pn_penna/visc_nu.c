@@ -35,11 +35,11 @@ second viscosity prescription.
 
   // assumes that G=M=1. Fitting formula 42 from Penna+2013
   if (x1>6.) {
- 	  alpha = (0.025*power(1. - 2./x1,6))/power(1. - 3./x1,6); 
+ 	  alpha = (0.025*pow(1. - 2./x1,6))/pow(1. - 3./x1,6); 
+  }
   else {
   	  alpha = 0.140466; // truncates formula inside r<6M
   }
-  } 
 
   *nu1 = alpha * v[RHO] * sqrt(x1); // coefficient of shear viscosity = (kinematic viscosity)*rho
   *nu2 = 0.0; // coefficient of bulk viscosity
